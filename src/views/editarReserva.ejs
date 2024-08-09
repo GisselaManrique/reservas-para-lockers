@@ -1,0 +1,49 @@
+<%- include('partials/_header'); %>
+
+<div clas="container mt-5">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <form action="/editar/<%- data.id %>" method="post">
+                    <div class="form-group">
+                        <label for="numLocker">Número de Casillero:</label>
+                        <input type="number" class="form-control form-control-sm" id="numLocker" name="numLocker" value="<%- data.numLocker %>" min="1" max="72" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control form-control-sm" id="nombre" name="nombre" value="<%- data.nombre %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" class="form-control form-control-sm" id="apellido" name="apellido" value="<%- data.apellido %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico:</label>
+                        <input type="email" class="form-control form-control-sm" id="correo" name="correo" value="<%- data.correo %>" required>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="diaIni">Fecha de Inicio:</label>
+                        <input type="date" class="form-control form-control-sm" id="diaIni" name="diaIni" value="<%- new Date(data.diaIni).toISOString().split('T')[0] %>" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="numDia">Días de Reserva:</label>
+                        <input type="number" class="form-control form-control-sm" id="numDia" name="numDia" value="<%- data.numDia %>"  min="1" max="4" required>
+
+                    </div>
+                  
+    
+                    <div class="text-center">
+                        <button class="btn btn-secondary btn-lg mt-3" type="submit">Guardar</button>
+     
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%- include('partials/_footer'); %>

@@ -1,0 +1,242 @@
+.locker {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.available {
+    background-color: green;
+    color: white;
+}
+
+.unavailable {
+    background-color: red;
+    color: white;
+}
+
+.px-4 {
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+  }
+
+  .page-section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .cta {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    /*background-color:darkgray;*/
+    background-color: rgba(43, 48, 52, 0.836);
+  }
+  .cta .cta-inner {
+    position: relative;
+    padding: 3rem;
+    margin: 0.5rem;
+  }
+  .cta .cta-inner:before {
+    border-radius: 0.5rem;
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    bottom: -0.5rem;
+    left: -0.5rem;
+    right: -0.5rem;
+    border: 0.25rem solid rgba(255, 255, 255, 0.85);
+    z-index: -1;
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
+  }
+  .alert-heading {
+    color: inherit;
+  }
+
+  .site-heading {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    line-height: 1;
+    font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  .site-heading {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    line-height: 1;
+    font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  .site-heading .site-heading-upper {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  .site-heading .site-heading-lower {
+    font-size: 5rem;
+    font-weight: 100;
+    line-height: 4rem;
+  }
+  
+  .section-heading {
+    text-transform: uppercase;
+  }
+  .section-heading .section-heading-upper {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+  .section-heading .section-heading-lower {
+    display: block;
+    font-size: 3rem;
+    font-weight: 100;
+  }
+  
+  @media (min-width: 992px) {
+    .about-heading .about-heading-img {
+      position: relative;
+      z-index: 0;
+    }
+    .about-heading .about-heading-content {
+      margin-top: -5rem;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .bg-faded {
+    background-color: #fcfaf9;
+  font-weight: bold;
+  }
+
+
+  .btn-consulta {
+    width: 60%; /* Ajusta este valor según el tamaño deseado */
+    max-width: 150px; /* Puedes ajustar este valor también */
+}
+
+/*MODAL*/
+
+.modal {
+  display: none; /* Por defecto, el modal estará oculto */
+  position: fixed; /* Para que el modal esté fijo en la ventana */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupará toda la pantalla */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  z-index: 1050; /* Z-index alto para estar por encima del resto del contenido */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 2px solid #888;
+  width: 80%; /* Ancho del contenido del modal */
+  max-width: 800px; /* Ancho máximo del modal */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: auto;
+  /*margin-left: 20%; /* Ajusta el valor según lo necesites */
+  /*transform: translateX(-10%); /* Ajusta el valor según lo necesites */
+}
+
+
+
+/* Estilo para el botón dentro del modal */
+.modal-button {
+  background-color: #af4c4c;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+/* Estilo para separar el botón de reservar de la barra de texto */
+.form-group {
+  margin-bottom: 10px; /* Ajusta el valor según lo necesites */
+}
+
+.modal-content {
+  font-size: 12px; /* Ajusta el tamaño según tus necesidades */
+}
+
+  /* Centrar el título del modal */
+  .modal-content h2 {
+      text-align: center;
+      margin-top: 20px; /* Espacio adicional debajo del título */
+      margin-bottom: 20px; /* Espacio adicional debajo del título */
+      font-size: 24px;
+  }
+
+  .modal-content p1 {
+      text-align: center;
+      margin-bottom: 12px; /* Espacio adicional debajo del título */
+  }
+
+  /* Alinear el contenido del modal a la izquierda */
+  .modal-content p, ul {
+      text-align: left;
+      margin-bottom: 10px;
+  }
+
+
+  .pagination a.active {
+    font-weight: bold;
+    color: rgb(131, 137, 141);
+}
+
+.pagination a {
+    margin: 5px;
+    text-decoration: none;
+    color: rgb(7, 7, 7);
+}
+
+/* Aplica a todo el contenedor del formulario */
+.form-container2 {
+  width: 300px; 
+  padding: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Estilo para los inputs de texto */
+.form-control {
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+}
+
+/* Estilo para el botón de envío */
+.btn2 {
+  width: 100%; 
+  padding: 10px; 
+  background-color: #007BFF; 
+  color: white; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer;
+
+}
+
+/* Cuando se pasa el mouse sobre el botón */
+.btn2:hover {
+  background-color: #0056b3; 
+}
+
+

@@ -1,0 +1,24 @@
+<%- include('partials/_header_login'); %>
+
+<body> 
+    <div class="form-container2">
+    <form action="/login" method="post">
+        <h1 class="h3 mb-3 font-weight-normal text-center">Iniciar Sesion</h1>
+        <!-- <label for="username" class="sr-only">Usuario:</label>-->
+      <input type="text" id="username" name="username" class="form-control" placeholder="usuario" required >
+       <!-- <label for="password" class="sr-only">Contraseña:</label>-->
+      <input type="password" id="password" name="password" class="form-control" placeholder="contraseña" required>
+      <div class="checkbox mb-3">
+        <label>
+        <!--  
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>-->
+        <!-- 
+        <a class="btn btn-primary" href="/mostrar" method="get">Iniciar Sesion</a>-->
+        <button type="submit" class="btn2 btn-primary mt-3">Iniciar Sesión</button>
+
+    </form>
+</div>
+</body>

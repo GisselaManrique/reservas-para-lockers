@@ -1,0 +1,126 @@
+  <%- include('partials/_header'); %>
+    <body onload="showModal()">
+    <section class="page-section ">
+    <div class="container px-4">
+        <div class="row mt-10">
+        <div class="col-md-7">
+        <!-- <h1 class="text-center">Reserva tu Locker</h1>-->
+          
+        <div class="date-filter ">
+            <label>Reserva por fecha:</label>
+            <input type="date" id="diaIni" class="form-control" onchange="cargarLockers()">
+           
+        </div>
+        <div style="margin-top: 20px;"></div> 
+
+        
+        <div id="lockers" class="d-flex flex-wrap gap-2 px-4"></div>
+        <div class="text-center"></div>
+
+        </div>
+        <div class="col-md-5">
+        <div class="form-container">
+            <form action="/anadir" method="post">
+               
+                <div class="form-group">
+                    <label for="numLocker">Número de Casillero:</label>
+                    <input type="number" class="form-control form-control-sm" id="numLocker" name="numLocker" min="1" max="72" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control form-control-sm" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" class="form-control form-control-sm" id="apellido" name="apellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" class="form-control form-control-sm" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="diaIni">Fecha de Inicio:</label>
+                    <input type="date" class="form-control form-control-sm" id="diaIni" name="diaIni" required>
+                </div>
+                <div class="form-group">
+                    <label for="numDia">Días de Reserva:</label>
+                    <input type="number" class="form-control form-control-sm" id="numDia" name="numDia" min="1" max="4" required>
+
+
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control form-control-sm" id="diaFin" name="diaFin">
+                </div>
+
+                <div class="text-center" ><!--ACA AGREGUE ESTE SHOW MODAL-->
+                    <button class="btn btn-secondary  btn-lg mt-3" type="submit"  >Reservar</button>
+                </div>
+      
+<!--MODAL-->
+<div id="myModal" class="modal">
+<div class="modal-content" >
+<div class="about-heading-content">
+    <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+            <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                    <!-- 
+                    <span class="section-heading-upper">Condiciones para uso de lockers</span>-->
+                    <span >Condiciones para uso de lockers</span>
+                    <span class="section-heading-upper" > Al reservar este locker, acepto y tengo conocimiento de lo siguiente:  </span>
+                </h2>
+                <ul class="text-left">
+                <li>Este locker está destinado exclusivamente para guardar laptops.</li>
+                <li>Debo cerrar adecuadamente el locker después de su uso para proteger mi laptop.</li>
+                <li>El uso de este locker es temporal y debo liberarlo cuando deje de usarlo.</li>
+                <li>Soy responsable de los objetos almacenados en el locker.</li>
+                <li>En caso se identifique que el locker este ocupado y no reservado se retirará las cosas almacenadas.</li>
+                <li>No se permite almacenar bebidas.</li>
+                <li>Evitaré ocupar lockers adicionales innecesariamente.</li>
+                <li>Reportaré cualquier problema con el locker a Servicios Generales.</li>
+                <li>Mantendré el locker limpio y desecharé adecuadamente cualquier basura.</li>
+                <li>Usaré este espacio de manera ética y conforme a las políticas de la empresa.</li>
+                <li>Por mi seguridad y la de mis pertenencias, no dejaré el locker abierto sin supervisión.</li>
+            </ul>
+            <div class="text-center">
+                <button class="modal-button" onclick="reloadPage()">Acepto las condiciones</button>
+            </div>
+            </div>
+   
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+                </div>
+            </form>
+        </div>
+    
+            </div>
+        </section>
+        <!-- -->
+            <section class="page-section cta">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-9 mx-auto">
+                            <div class="cta-inner bg-faded text-center rounded">
+                                <h2 class="section-heading mb-4">
+                                    <!-- 
+                                    <span class="section-heading-upper">Our Promise</span>-->
+                                    <span class="section-heading-lower">consideraciones</span>
+                                </h2>
+                                <p class="mb-0">La reserva se realizará por máximo 4 días.</p>
+                                <p class="mb-0">Al culminar la reserva colocar la llave en el locker  correspondiente.</p>
+                                <p class="mb-0">Para contacto comunicarse al correo <em>reservatulocker@expertiatravel.com</em>. </reservatulocker> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          
+</body>
+<%- include('partials/_footer'); %>
+<!-- 
+</html>
+-->

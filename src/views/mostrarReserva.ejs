@@ -1,0 +1,163 @@
+
+<%- include('partials/_header_table'); %>
+<script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
+<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+<script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
+<script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+
+
+<div id="ctl00_ContentPlaceHolder1_UpdatePanel1">
+
+    <div class=" card mb-3">
+        <div class="card-header">
+            <i class="fa fa-filter fa-fw" aria-hidden="true"></i>Filtros 
+        </div>
+        <div class="card-body">
+            <div class="bootstrap-iso">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <form id="filtroFechas" class="col-12">
+                                    <div class="row">
+                                        <!-- Fecha Inicial -->
+                                        <div class="col-md-6">
+                                            <h6>Fecha inicial</h6>
+                                            <div class="input-group">
+                                                <input type="date" id="fechaInicio" class="form-control" name="fechaInicio" required>
+                                                <span class="input-group-addon"><i class="fa fa-calendar-minus-o"></i></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Fecha Final -->
+                                        <div class="col-md-6">
+                                            <h6>Fecha final</h6>
+                                            <div class="input-group">
+                                                <input type="date" id="fechaFin" class="form-control" name="fechaFin" required>
+                                                <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-primary btn-consulta">Consultar</button>
+                                            <button type="button" class="btn btn-primary btn-consulta" onclick="quitarFiltro()">Quitar Filtro</button>
+                                            <button id="btnExportar" class="btn btn-success btn-consulta" onclick="exportTableToExcel('tabla', 'reporte')">Exportar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+           
+            
+        </div>
+  
+
+
+
+<!--contenido de la tabla-->
+    <div class=" card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table fa-fw" aria-hidden="true"></i>Datos
+        </div>
+        <div class="card-body">
+            <div class="pagination">
+                <% if (totalPages > 1) { %>
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                        <a href="?fechaInicio=<%= fechaInicio %>&fechaFin=<%= fechaFin %>&page=<%= i %>&limit=100"
+                           class="<%= currentPage === i ? 'active' : '' %>">
+                            <%= i %>
+                        </a>
+                    <% } %>
+                <% } %>
+            </div>
+            <table id="tabla" class="table table-bordered table-hover">
+                <thead>
+                    <tr> 
+                    <th>ID</th>
+                    <th>N° Locker</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Dia Inicial</th>
+                    <th>Cantidad de dias </th>
+                    <th>Dia Final</th>
+                    <th>Dia registro</th>
+                    <th>Eliminar</th>
+                    <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tbody>
+                        <% if (data) { %>
+                            <% for (var i = 0; i < data.length; i++) { %>
+                                <tr>
+                                    <td><%- (i + 1) %></td>
+                                    <td><%- data[i].numLocker %></td>
+                                    <td><%- data[i].nombre %></td>
+                                    <td><%- data[i].apellido %></td>
+                                    <td><%- data[i].correo %></td>
+                                    <td><script>document.write(formatoFecha("<%- data[i].diaIni %>"));</script></td>
+                                    <!-- <td><%- data[i].diaIni %></td>-->
+                                    
+                                    <td><%- data[i].numDia %></td>
+                                    <td><script>document.write(formatoFecha("<%- data[i].diaFin %>"));</script></td>
+
+                                    <!-- 
+                                    <td><%- data[i].diaReg %></td>-->
+                        
+                                    <td><script>document.write(formatoFechaHora("<%- data[i].diaReg %>"));</script></td>
+                                   
+                                    <td>
+                                        <a href="/eliminar/<%- data[i].id %>" class="btn btn-danger" style="margin-right: 20px;">
+                                            
+                                            <i class="bi bi-trash3"></i> 
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="/editar/<%- data[i].id %>" class="btn btn-info" style="margin-right: 20px;">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+
+                        
+                    </tbody>
+                    
+                </tbody>
+            </table>
+
+
+
+
+
+        </div>
+        <div class="card-footer small text-muted">
+            <label id="label1">Resultados:</label>
+            <label id="ctl00_ContentPlaceHolder1_lblTotal"><td><%- (i) %></td> </label>
+        </div>
+    </div>
+   
+      
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<%- include('partials/_footer'); %>
